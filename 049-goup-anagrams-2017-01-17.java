@@ -25,13 +25,10 @@ public class Solution {
             char[] ch = s.toCharArray();
             Arrays.sort(ch);
             String key = new String(ch);
-            if(map.containsKey(key))
-                map.get(key).add(s);
-            else{
-                List<String> list = new ArrayList<String>();
-                list.add(s);
-                map.put(key,list);
+            if(!map.containsKey(key)){
+                map.put(key,new ArrayList<String>());
             }
+            map.get(key).add(s);
         }
         return new ArrayList<>(map.values());
     }
